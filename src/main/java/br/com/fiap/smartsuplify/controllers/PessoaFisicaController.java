@@ -64,7 +64,7 @@ public class PessoaFisicaController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<PessoaFisica> destroy(@PathVariable Long id){
+    public ResponseEntity<Void> destroy(@PathVariable Long id){
         log.info("apagando funcionario com id " + id);
 
         pessoaFisicaRepository.delete(getPessoaFisicaById(id));

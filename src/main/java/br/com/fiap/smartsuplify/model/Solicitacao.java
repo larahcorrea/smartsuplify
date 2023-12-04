@@ -13,7 +13,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.DecimalMax;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +32,6 @@ public class Solicitacao {
     private Long id;
 
     @Column(name = "QUANT_ADQUIRIVEL")
-    @NotBlank
     private Double quantidade;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})

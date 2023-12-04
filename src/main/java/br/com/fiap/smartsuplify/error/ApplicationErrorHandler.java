@@ -3,6 +3,7 @@ package br.com.fiap.smartsuplify.error;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -29,6 +30,13 @@ public class ApplicationErrorHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public RestValidationError validationHandler(ResourceNotFoundException e){
         return new RestValidationError(null, e.getMessage());
+                
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public RestValidationError validationHandler(DataIntegrityViolationException e){
+        return new RestValidationError("Violação de integridade", e.getMessage());
                 
     }
     

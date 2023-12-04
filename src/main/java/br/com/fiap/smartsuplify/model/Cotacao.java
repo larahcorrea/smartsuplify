@@ -38,7 +38,6 @@ public class Cotacao {
     private Long id;
 
     @Column(name = "DATA_COTACAO")
-    @NotBlank
     private LocalDate data;
 
     @Column(name = "STATUS_COTACAO")
@@ -69,7 +68,7 @@ public class Cotacao {
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE})
     @JoinColumn(
             name = "FUNCIONARIO",
-            referencedColumnName = "ID_FUNCIONARIO",
+            referencedColumnName = "ID_PESSOA",
             foreignKey = @ForeignKey(name = "TB_COTACAO_FK_FUNCIONARIO")
     )
     private PessoaFisica funcionario;
