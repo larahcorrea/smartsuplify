@@ -24,8 +24,8 @@ public class PessoaJuridica extends Pessoa{
     @NotBlank
     private String cnpj;
 
-     public PessoaJuridica(Long id, String nome, String email, String password, String cnpj) {
-        super( id, nome, email, password );
+     public PessoaJuridica(Long id, String nome, String cnpj) {
+        super(id, nome);
         this.cnpj = cnpj;
     }
 }

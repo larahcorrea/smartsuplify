@@ -34,11 +34,5 @@ public class Pessoa {
     @NotBlank
     private String nome;
 
-    @Column(name = "EMAIL")
-    @NotBlank
-    private String email;
-
-    @Column(name = "SENHA")
-    @NotBlank
-    private String senha;
+    
 }

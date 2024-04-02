@@ -46,10 +46,10 @@ public class DatabaseSeeder implements CommandLineRunner {
     @Autowired
     CotacaoRepository cotacaoRepository;
 
-    private PessoaJuridica empresa1 = new PessoaJuridica(null, "Flor de Mim", "flordemim@email.com.br", "senha123", "95122220000102");
-    private PessoaJuridica empresa2 = new PessoaJuridica(null, "Meg Meg", "megmeg@email.com.br", "senha123", "71133376000112");
+    private PessoaJuridica empresa1 = new PessoaJuridica(null, "Flor de Mim", "95122220000102");
+    private PessoaJuridica empresa2 = new PessoaJuridica(null, "Meg Meg", "71133376000112");
 
-    private PessoaFisica pessoa = new PessoaFisica(null, "Ana", "ana@email.com.br", "senha123", "69947134075");
+    private PessoaFisica pessoa = new PessoaFisica(null, "Ana", "69947134075", "ana@email.com.br", "senha123");
 
     private Produto produto1 = new Produto(null, "Caneta", "20cm");
     private Produto produto2 = new Produto(null, "gasolina", "1000L");
