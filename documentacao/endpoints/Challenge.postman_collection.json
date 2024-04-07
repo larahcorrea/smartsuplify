@@ -55,7 +55,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Bruna\",\r\n    \"email\": \"bruna@email.com.br\",\r\n    \"senha\": \"senha123\",\r\n    \"cpf\": \"36921072002\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Ana\",\r\n    \"cpf\": \"76107237012\",\r\n    \"email\": \"ana@email.com.br\",\r\n    \"senha\": \"senha123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -63,14 +63,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/funcionarios",
+							"raw": "http://localhost:8080/usuario",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"funcionarios"
+								"usuario"
 							]
 						}
 					},
@@ -583,15 +583,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/solicitacoes/1",
+							"raw": "http://localhost:8080/solicitacoes",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"solicitacoes",
-								"1"
+								"solicitacoes"
 							]
 						}
 					},
@@ -781,6 +780,110 @@
 							"path": [
 								"cotacoes",
 								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Ana\",\r\n    \"cpf\": \"76107237012\",\r\n    \"email\": \"ana@email.com.br\",\r\n    \"senha\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "Integração API .NET - listagem empresas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzbWFydHN1cGxpZnkiLCJzdWIiOiJsYXJhaEBlbWFpbC5jb20uYnIiLCJleHAiOjE3MTI1MjY4NTR9.KiCkmxhyYGsPhmUnqAncJhnC-aHQRYDkhcyqbNCWiyJycfwQuXlRY3pEFXYree8gYNPnwzHgOiX2IQpKjJF6bw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/empresas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"empresas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro empresa .net",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"flor de mim\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7208/api/empresa",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7208",
+							"path": [
+								"api",
+								"empresa"
 							]
 						}
 					},

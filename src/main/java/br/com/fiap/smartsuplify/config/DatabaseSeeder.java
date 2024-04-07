@@ -22,7 +22,7 @@ import br.com.fiap.smartsuplify.repository.ProdutoRepository;
 import br.com.fiap.smartsuplify.repository.ServicoRepository;
 import br.com.fiap.smartsuplify.repository.SolicitacaoRepository;
 
-@Configuration
+//@Configuration
 public class DatabaseSeeder implements CommandLineRunner {
 
     @Autowired

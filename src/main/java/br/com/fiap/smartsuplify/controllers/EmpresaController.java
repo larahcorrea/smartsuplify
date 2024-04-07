@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.smartsuplify.clients.EmpresaClient;
 import br.com.fiap.smartsuplify.error.exceptions.ResourceNotFoundException;
+import br.com.fiap.smartsuplify.model.dto.EmpresaDto;
 import br.com.fiap.smartsuplify.model.pessoa.PessoaJuridica;
 import br.com.fiap.smartsuplify.repository.PessoaJuridicaRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -22,10 +24,13 @@ public class EmpresaController {
     @Autowired
     PessoaJuridicaRepository pessoaJuridicaRepository;
 
+    @Autowired
+    EmpresaClient empresaClient;
+
     @GetMapping
-    public List<PessoaJuridica> index(){
+    public List<EmpresaDto> index(){
         log.info("buscando todos as empresas");
-        return pessoaJuridicaRepository.findAll();
+        return empresaClient.getEmpresas().getBody();
     }
 
     @GetMapping("/{id}")
