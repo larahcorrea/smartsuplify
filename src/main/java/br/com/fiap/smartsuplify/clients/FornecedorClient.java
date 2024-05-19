@@ -1,30 +1,19 @@
 package br.com.fiap.smartsuplify.clients;
 
+
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 
 import br.com.fiap.smartsuplify.model.dto.FornecedorDTO;
-import lombok.extern.slf4j.Slf4j;
 
-@Component
-@Slf4j
-public class FornecedorClient {
+@FeignClient(url = "http://localhost:5202/api/Fornecedor", name = "fornecedor")
+public interface FornecedorClient {
 
-    @Autowired
-    RestTemplate restTemplate;
 
-    String URL_FORNECEDORES = "http://localhost:5202/api/Fornecedor";
-
-    public ResponseEntity<List<FornecedorDTO>> getFornecedores(){
-        ParameterizedTypeReference<List<FornecedorDTO>> responseType = new ParameterizedTypeReference<List<FornecedorDTO>>() {};
-        return restTemplate.exchange(URL_FORNECEDORES, HttpMethod.GET, null, responseType);
-
-    }
+    @GetMapping
+    List<FornecedorDTO> getFornecedores(@RequestHeader("Authorization") String token, @RequestHeader("Cookie") String cookie);
     
 }
