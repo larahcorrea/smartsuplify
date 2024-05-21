@@ -13,8 +13,10 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import br.com.fiap.smartsuplify.model.dto.Token;
 import br.com.fiap.smartsuplify.model.pessoa.PessoaFisica;
 import br.com.fiap.smartsuplify.repository.PessoaFisicaRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
+@Slf4j
 public class TokenService {
 
     @Autowired
@@ -42,6 +44,8 @@ public class TokenService {
                         .build()
                         .verify(token)
                         .getSubject();
+        
+        log.info("email token: " + email);
 
         return pessoaFisicaRepository.findByEmail(email).orElseThrow(() -> new JWTVerificationException("Erro na verificação do Token"));
     }
